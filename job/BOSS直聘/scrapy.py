@@ -1,6 +1,5 @@
 from requests import get
-import parsel
-#import clear_cookie
+from parsel import Selector
 from time import sleep
 
 for page in range(1,1000):
@@ -18,7 +17,7 @@ for page in range(1,1000):
     html_data = get(url=base_url,headers=headers).text
 
 
-    selector = parsel.Selector(html_data)
+    selector = Selector(html_data)
     result_list = selector.css("#main > div > div.job-list > ul > li")
     for sel in result_list:
         Job_benefits = sel.css("div > div.info-append.clearfix > div.info-desc ::text").extract_first() #工作福利
