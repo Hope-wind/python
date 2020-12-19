@@ -51,7 +51,7 @@ class Download(object):
 
             id = str(randint(0,99999999999999))
             try:
-                with open(path + '\\' + id + os.path.splitext(img_url)[1], mode='wb') as f:
+                with open(path + '/'+ id + os.path.splitext(img_url)[1], mode='wb') as f:
                     f.write(content)
                     print('保存完成',id)
             except Exception as e:
